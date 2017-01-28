@@ -52,7 +52,7 @@ class Levels(Plugin):
         await self.mee6.send_message(message.channel, response)
 
     @command(pattern="(^!rank$)|(^!rank <@!?[0-9]*>$)",
-             description="Get a player info and rank",
+             description="Oyuncu bilgisi ve sıralaması alın",
              cooldown="cooldown",
              banned_roles="banned_roles")
     async def rank(self, message, args):
@@ -64,8 +64,8 @@ class Levels(Plugin):
         player_info = await self.get_player_info(player)
 
         if not player_info:
-            resp = "{}, It seems like you are not ranked. "\
-                "Start talking in the chat to get ranked :wink:."
+            resp = "{}, Bol bol yazı yazarak seviye ve rütbe kazanabilirsin. "\
+                "Lvl yükseltmek için sohbette konuşmaya başlayın :wink:."
             if player != message.author:
                 resp = "{}, It seems like " + player.mention + \
                     " is not ranked :cry:."
