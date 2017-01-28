@@ -64,8 +64,8 @@ class Levels(Plugin):
         player_info = await self.get_player_info(player)
 
         if not player_info:
-            resp = "{}, It seems like you are not ranked. "\
-                "Start talking in the chat to get ranked :wink:."
+            resp = "{}, Bol bol yazı yazarak seviye ve rütbe kazanabilirsin. "\
+                "Seviye ve rütbe kazanmak için bol bol sohbet edin :wink:."
             if player != message.author:
                 resp = "{}, It seems like " + player.mention + \
                     " is not ranked :cry:."
