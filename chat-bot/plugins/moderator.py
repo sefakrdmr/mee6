@@ -39,7 +39,7 @@ class Moderator(Plugin):
         message_number = len(deleted_messages) - 1
         confirm_message = await self.mee6.send_message(
             message.channel,
-            "`Deleted {} message{}!` :thumbsup: ".format(
+            "`Silinen {} mesaj{}!` :thumbsup: ".format(
                 message_number,
                 "" if message_number < 2 else "s"
             )
@@ -90,7 +90,7 @@ class Moderator(Plugin):
         )
         await self.mee6.send_message(
             message.channel,
-            "{} is now 🙊here!".format(member.mention)
+            "{} Şimdi her yerde susturuldun GG bro!🙊".format(member.mention)
         )
 
     @command(pattern='^!unmute <@!?([0-9]*)>$', db_name="mute", db_check=True,
@@ -114,8 +114,8 @@ class Moderator(Plugin):
         )
         await self.mee6.send_message(
             message.channel,
-            "{} is no longer 🙊  here! He/sh"
-            "can speak 🐵 now!".format(member.mention)
+            "{} Artık 🙊 burada değil! He/sh"
+            "Hayırlı olsun şimdi konuşabilirsin!🐵".format(member.mention)
         )
 
     @command(pattern='!slowmode ([0-9]*)', db_check=True,
@@ -125,7 +125,7 @@ class Moderator(Plugin):
         if num == 0:
             await self.mee6.send_message(
                 message.channel,
-                "The slow mode interval cannot be 0 😉"
+                "Yavaş mod aralığı 0 😉"
             )
             return
         storage = await self.get_storage(message.server)
@@ -141,7 +141,7 @@ class Moderator(Plugin):
         )
         await self.mee6.send_message(
             message.channel,
-            "{} is now in 🐌 mode. ({} seconds)".format(
+            "{} Şimdi 🐌 modundadır. ({} Saniye)".format(
                 message.channel.mention,
                 num
             )
@@ -173,7 +173,7 @@ class Moderator(Plugin):
         # Confirm message
         await self.mee6.send_message(
             message.channel,
-            "{} is no longer in 🐌 mode 😉.".format(
+            "{} Artık 🐌 modunda değil 😉.".format(
                 message.channel.mention
             )
         )
@@ -242,7 +242,7 @@ class Moderator(Plugin):
                 await self.mee6.delete_message(message)
                 msg = await self.mee6.send_message(
                     message.channel,
-                    "{}, **LANGUAGE!!!**😡".format(
+                    "{}, **ŞŞTT DİLİNİ KESERLER GÜZELİM SAKİN OL KÜFÜR KULLANMA!!!**😡".format(
                         message.author.mention
                     )
                 )
