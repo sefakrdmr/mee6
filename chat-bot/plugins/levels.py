@@ -43,7 +43,7 @@ class Levels(Plugin):
         return not await self.is_ban(member)
 
     @command(pattern="!levels",
-             description="Get a link to the server leaderboard",
+             description="Sunucun lider tablosundan bir bağlantı alın",
              banned_roles="banned_roles")
     async def levels(self, message, args):
         url = "<http://mee6.xyz/levels/" + message.server.id + ">"
@@ -52,7 +52,7 @@ class Levels(Plugin):
         await self.mee6.send_message(message.channel, response)
 
     @command(pattern="(^!rank$)|(^!rank <@!?[0-9]*>$)",
-             description="Get a player info and rank",
+             description="Oyuncu bilgisi ve sıralaması alın",
              cooldown="cooldown",
              banned_roles="banned_roles")
     async def rank(self, message, args):
@@ -64,11 +64,11 @@ class Levels(Plugin):
         player_info = await self.get_player_info(player)
 
         if not player_info:
-            resp = "{}, It seems like you are not ranked. "\
-                "Start talking in the chat to get ranked :wink:."
+            resp = "{}, Bol bol yazı yazarak seviye ve rütbe kazanabilirsin. "\
+                "Sıralanmak için sohbette konuşmaya başlayın :wink:."
             if player != message.author:
-                resp = "{}, It seems like " + player.mention + \
-                    " is not ranked :cry:."
+                resp = "{}, Öyle görünüyor ki " + player.mention + \
+                    " Rank yok :cry:."
             await self.mee6.send_message(message.channel,
                                         resp.format(message.author.mention))
             return
@@ -199,7 +199,7 @@ class Levels(Plugin):
             try:
                 await self.update_rewards(message.server)
             except Exception as e:
-                log.info('Cannot update rewards of server {}'.format(
+                log.info('Sunucunun ödülleri güncellenemiyor {}'.format(
                     message.server.id
                 ))
                 log.info(e)
@@ -226,7 +226,7 @@ class Levels(Plugin):
         storage = await self.get_storage(server)
         rewards = []
         for role in server.roles:
-            lvl = int(await storage.get('reward:{}'.format(role.id)) or 0)
+            lvl = int(await storage.get('ödül:{}'.format(role.id)) or 0)
             if lvl == 0:
                 continue
             rewards.append({'lvl': lvl,
@@ -273,7 +273,7 @@ class Levels(Plugin):
             try:
                 await self.update_rewards(server)
             except Exception as e:
-                log.info('Cannot update the rewards for server '+server.id)
+                log.info('Sunucu için ödülleri güncelleyemiyorum '+server.id)
                 log.info(e)
 
             await asyncio.sleep(0.1)
